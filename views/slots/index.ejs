@@ -1,0 +1,55 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<style>
+    .card {
+        height: 20rem;
+        -webkit-backdrop-filter: blur(10px); /* Safari */
+        backdrop-filter: blur(5px);
+        background-image:url('https://img.freepik.com/premium-photo/abstract-background-design-images-wallpaper-ai-generated_643360-80568.jpg');
+        background-size: cover;
+        margin-bottom: 10px; /* Reduced margin */
+        border-radius: 10px; /* Rounded corners */
+        transition: transform 0.3s ease-in-out; /* Added transition */
+        overflow: hidden; /* Ensure rounded corners apply properly */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow effect */
+    }
+    
+    .card:hover {
+        transform: scale(1.05); /* Scale up on hover */
+    }
+
+    .card-body {
+        margin-top: 5%; /* Adjusted margin-top */
+        padding: 10px; /* Added padding for better visibility */
+    }
+    h3{
+        margin-top: 35%;
+    }
+    .visually-hidden {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+    }
+</style>
+<div class="row mt-5">
+    <% for(let item of foundSlot.availability){ %>
+        <div class="col-lg-4 product-card">
+            <div class="card text-center shadow mt-3 mx-auto" style="width: 18rem;">
+                <span class="visually-hidden">img</span>
+                <h3>Time : <%=item.hour%>:00</h3>
+                <div class="card-body">
+                    <h4>Available : <%=item.isAvail%></h4>
+                    <h5>PaymentId : <%=item.paymentIntentId%></h5>
+                    <h6>Vehicle Number : <%=item.vehicleNumber%></h6>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+<%- include('./partials/footer') %>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ParkApp</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+
+
+  </head>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+      }
+      li{
+        list-style: none;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      /* header */
+      #logo{
+        width:15%;
+      }
+      #nav{
+        height: 100px;
+      
+      }
+      #heading{
+      padding-left: 50px;
+        width:30%;
+      }
+      #heading h1{
+        margin-left: 5px;
+      }
+      #navbar{
+        justify-content: flex-end;
+        width:60%;
+      }
+      #nav-items{
+        justify-content: flex-end;
+        gap:40px;
+        font-size: 1.1rem;
+      
+      }
+      .btnlogin-popup{
+        width:130px;
+        height:50px;
+        border:2px solid #fff;
+        outline:none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: .5s;
+      }
+      /* image */
+      .image{
+        position: relative;
+        text-align: center;
+        background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.5)),url("https://gumlet.assettype.com/knocksense%2F2022-05%2Fcd103457-9844-41b2-b6d5-9aaf73fa27ff%2Fbosch_bbm_avp_stage_still_stage_mobile.jpeg?format=auto");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        height: 650px;
+        width: auto;
+      }
+      
+      .img-des1{
+        position: absolute;
+        font-size: 1.8em;
+        color:white;
+        top: 50%;
+       left: 10%;
+       right:55%;
+      }
+      
+      /* Work */
+      .heading{
+        margin: 25px 100px;
+        text-align: center;
+        font-size: 1.4em;
+      }
+      .heading h2{
+        margin: 25px 0px;
+      }
+      .img{
+        width:20%;
+      }
+      .img p{
+        margin-top: 5px;
+      }
+      
+      /* testimonial */
+      .test{
+        margin-top: 50px ;
+        margin-bottom: 50px;
+        background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.5)),url("https://us.123rf.com/450wm/06photo/06photo1307/06photo130700015/20585939-parking-garage-interior-with-a-few-parked-cars.jpg?ver=6");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .test .img-des1{
+        top: 10%;
+       left: 33%;
+       right:35%;
+      }
+      
+      /* footer */
+      
+      .des{
+        text-align: center;
+        margin-left: 30%;
+        margin-right:30%;
+      }
+      .des p{
+      
+        font-size: 2em;
+        font-style: normal;
+        font-weight: lighter;
+      }
+      .des span{
+        font-weight: bold;
+      }
+      .input{
+        margin: 3%  0  3% 35% ;
+      }
+      .input input{
+      width:300px;
+      height: 30px;
+      border-radius: 5px;
+      
+      }
+      .input button{
+        margin-left: 15px;
+        width:150px;
+        height: 30px;
+        font-size: 1em;
+        border-radius: 5px;
+      }
+      
+      
+    .image{
+      /* margin-top: 30px; */
+      position: relative;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.5)),url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/birds-eye-view-of-vehicles-expresso.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      height: 500px;
+      width: auto;
+    }
+    
+    .img-des{
+      position: absolute;
+      color:white;
+      top: 55%;
+     left: 40%;
+    }
+    
+  </style>
+  <body>
+    <header>
+      <div class="container" id="nav">
+
+
+      <div class="container" id="heading">
+          <h1> ParkApp</h1>
+      </div>
+      <div class="container" id="navbar">
+        <ul class="container" id="nav-items">
+          <li><a href="/homepage">Home</a></li>
+          <li><a href="#">About</a></li>
+          <!-- <li><a href="/cities">Booking</a></li> -->
+          <li><a href="#">Testimonial</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <!-- <li><a href="/login" class="btnlogin-popup">Login</a></li> -->
+
+        </ul>
+      </div>
+      </div>
+
+
+    </header>
+    <div class="image">
+      <div class="img-des">
+        <h1>About Us</h1>
+      </div>
+    </div>
+
+
+
+
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

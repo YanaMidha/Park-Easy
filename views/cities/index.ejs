@@ -1,0 +1,29 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<style>
+    .card{
+        -webkit-backdrop-filter: blur(10px); /* Safari */
+        backdrop-filter: blur(5px);
+        background-color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 10px; /* Reduced margin */
+        transition: all 0.3s ease-in-out; /* Transition for all properties */
+    }
+    .card:hover {
+        transform: scale(1.05); /* Scale up on hover */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+    }
+</style>
+<div class="row mt-5">
+    <% for(let item of cities){ %>
+        <div class="col-lg-4 product-card">
+            <div class="card text-center shadow mt-3 mx-auto" style="width: 18rem;">
+                <img src="<%=item.img%>" class="card-img-top img" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title"> <%= item.name %> </h3>
+                    <a href="/cities/<%= item._id %>" class="btn btn-primary">View Locations</a>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+<%- include('./partials/footer') %>

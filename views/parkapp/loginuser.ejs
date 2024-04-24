@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ParkApp</title>
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <style>
+    body{
+        background-color: #f5ebe0;
+        background-size: cover;
+        background-position: center;
+        display:flex;
+        justify-content:space-between;
+        /* align-items: center; */
+      }
+      
+      .wrapper{
+      margin-top: 8%;
+      width: 400px;
+      height: 500px;
+      background: transparent;
+      border: 2px solid rgba(255,255,255,.5);
+      margin-left: 35%;
+      border-radius: 20px;
+      backdrop-filter:blur(20px);
+      /* color:white; */
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      }
+      #login_email, #login_password {
+        color: black ; /* Override any conflicting styles */
+      }
+      
+      
+      .wrapper .form-box{
+        width: 100%;
+        padding: 40px;
+      }
+      
+      .form-box h2{
+        font-size: 2rem;
+        color:#F0EAD6;
+        text-align: center;
+      }
+      
+      .input-box{
+        position: relative;
+        width: 100%;
+        height: 50px;
+        border-bottom: 2px solid #000000;
+        margin: 30px 0
+      }
+      .input-box label{
+        position: absolute;
+        top: 50%;
+        left:5px;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        color:#F0EAD6;
+        font-weight: 500;
+        pointer-events: none;
+        transition: .5s;
+      }
+      
+      .input-box input:focus~label,
+      .input-box input:valid~label{
+        top:-5px;
+      }
+      .input-box input{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        color:#F0EAD6;
+        font-weight: 500;
+        padding: 0 35px 0 5px;
+      }
+      .input-box ion-icon{
+        position: absolute;
+        right: 8px;
+        font-size: 1.2rem;
+        color:#F0EAD6;
+        line-height: 57px;
+      }
+      
+      .remember-forget{
+        font-size: .9em;
+        color:#F0EAD6;
+        font-weight: 500;
+        margin: -15px 0 15px;
+        display:flex;
+        justify-content: space-between;
+      
+      }
+      
+      .remember-forget label input{
+        accent-color:#F0EAD6;
+        margin-right: 3px;
+      }
+      
+      .remember-forget a{
+        color:#F0EAD6;
+        text-decoration: none;
+      }
+      
+      .remember-forget a:hover{
+        text-decoration: underline;
+      }
+      
+      .btn{
+        width: 100%;
+        height:45px;
+        background: #F0EAD6;
+        border: 1px solid black; /* Added border property */
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        color:#000000;
+        font-weight: 500;
+      }
+      
+      .btn:hover {
+        background-color:grey;
+      }
+      
+      .login-register{
+        font-size: .9em;
+        color:#F0EAD6;
+        text-align: left;
+        font-weight: 500;
+        margin: 25px 0 10px;
+      }
+      .login-register p{
+        margin-left: 45px;
+      }
+      .login-register p a{
+        color:#F0EAD6;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      
+      .login-register p a:hover{
+        text-decoration: underline;
+      }
+      
+      
+      
+      /* Google icon */
+      .google-icon {
+        display: inline-block;
+        width: 20px; /* Adjust size as needed */
+        height: 20px; /* Adjust size as needed */
+        background-image: url('https://cdn-icons-png.flaticon.com/512/281/281764.png'); /* Google icon image */
+        background-size: cover;
+        vertical-align: middle;
+      }
+      
+      /* Google login button */
+      .google-login {
+        display: inline-block;
+        padding: 5px 10px; /* Adjust padding as needed */
+        align-items: center;
+        font-size: 1em; /* Adjust font size as needed */
+        cursor: pointer;
+        text-decoration: none;
+        color: #FFF;
+        background-color: #4285F4; /* Google Blue */
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+        margin: 4px;
+        width: 93.5%;
+        
+      }
+      
+      .google-login:hover {
+        background-color: #3367D6; /* Darker shade of Google Blue */
+      }
+      
+      #googlebutton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      /* Mobile icon */
+      .mobile-icon {
+        display: inline-block;
+        width: 20px; /* Adjust size as needed */
+        height: 20px; /* Adjust size as needed */
+        background-image: url('https://cdn4.vectorstock.com/i/1000x1000/13/83/phone-icon-isolated-on-blue-background-vector-24711383.jpg'); /* Mobile icon image */
+        background-size: cover;
+        vertical-align: middle;
+      }
+      
+      /* Mobile login button */
+      .mobile-login {
+        display: inline-block;
+        padding: 5px 10px; /* Adjust padding as needed */
+        align-items: center;
+        font-size: 1em; /* Adjust font size as needed */
+        cursor: pointer;
+        text-decoration: none;
+        color: #FFF;
+        background-color: #007bff; /* Mobile button color */
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+        margin: 4px;
+        width: 93.5%; /* Adjust width as needed */
+      }
+      
+      .mobile-login:hover {
+        background-color: #0056b3; /* Darker shade of mobile button color */
+      }
+      
+      #mobileButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .middle-text {
+        text-align: center; 
+        margin-top: 2px;
+      }
+      
+      .middle-text p {
+        font-weight: bold; /* Optional: Adding bold to the text */
+        /* Additional styles for the text if needed */
+      }
+      
+  </style>
+  <body>
+<div class="wrapper">
+  <div class="form-box login">
+    <h2 style="color: black;">User Login</h2>
+    <form action="#">
+      <div class="input-box">
+        <span class="icon"><ion-icon name="mail" style="color: black;"></ion-icon></span>
+        <input type="email" name="email" id="login_email" required style="color: black;" >
+        <label style="color: black;">Email</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"><ion-icon name="lock-closed" style="color: black;"></ion-icon></span>
+        <input type="password" name="password" id="login_password" required style="color: black;">
+        <label style="color: black;">Password</label>
+      </div>
+      <div class="remember-forget">
+        <a href="#" style="color: black;">Forget Password?</a>
+      </div>
+      <button type="button" class="btn" id="login" name="login">Login</button>
+      <div id="googlebutton">
+        <a href="#" class="google-login">
+          <span class="google-icon"></span>
+          <span class="social-signin google" id="login_google">Login with Google</span>
+        </a>
+      </div>
+      <div id="mobileButton">
+        <a href="/phonelogin" class="mobile-login">
+          <span class="mobile-icon"></span>
+          <span class="social-signin mobile" id="login_mobile">Login with Mobile Number</span>
+        </a>
+      </div>
+      
+      <div class="login-register">
+        <p style="color: black;">Don't have an account? <a href="/signup" class="register-link" style="color: black;">Sign up</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  </body>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,signInWithRedirect,getRedirectResult} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyA8pDf5XRorj2DQ49078ct9Ujp12BVt-U4",
+      authDomain: "car-parking-slot-booking-95109.firebaseapp.com",
+      databaseURL: "https://car-parking-slot-booking-95109-default-rtdb.firebaseio.com",
+      projectId: "car-parking-slot-booking-95109",
+      storageBucket: "car-parking-slot-booking-95109.appspot.com",
+      messagingSenderId: "931446502491",
+      appId: "1:931446502491:web:a1fbe1f44013255b04bb7e",
+      measurementId: "G-QBZ5WJK0PN"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider(app);
+    const inputs = document.querySelectorAll('input');
+
+    console.log(app);
+
+    
+
+    document.getElementById("login").addEventListener("click", function() {
+		  var email =  document.getElementById("login_email").value;
+		  var password = document.getElementById("login_password").value;
+      let inputs = document.querySelectorAll('input');
+
+		  signInWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+
+             // Retrieving the actual user ID
+            const userId =  user.uid; // Retrieve the actual user ID
+            fetch('/cities', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userId: userId })
+            })
+            .then(response => {
+                // Handle response or do something after sending the user ID to the server
+            })
+            .catch(error => {
+                // Handle error
+            });
+            ;
+		    alert(user.email+" Login successfully!!!");
+            window.location.href='https://book.stripe.com/test_4gw9E44287Cr4akdQQ';
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    console.log(errorMessage);
+		    alert(errorMessage);
+		  });	
+
+      inputs.forEach(input => input.value='');  		  
+	  });
+	  //----- End
+    
+    //Sign in with Goggle
+
+    document.getElementById("login_google").addEventListener("click", function(){
+      signInWithRedirect(auth, provider);
+    });
+  
+    // Check if the page was redirected from Google sign-in
+    
+      getRedirectResult(auth)
+        .then((result) => {
+          if (result !== null) {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          const user = result.user;
+          // Redirect after successful Google login
+          if (user) {
+            alert("Login successfully!!!");
+            window.location.href='https://book.stripe.com/test_4gw9E44287Cr4akdQQ';
+          }
+          }
+          
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          alert(errorMessage);
+        }); 
+    
+  </script>
+</html>

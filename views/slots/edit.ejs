@@ -1,0 +1,22 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+
+
+<div class="row margin-form">
+    <div class="col-6 mx-auto">
+        <form action="/slot/<%=foundSlot._id%>?_Method=PUT" method="POST">
+            <div class="mb-3">
+                <label for="time" class="form-label">Confirm Time : </label>
+                <input type="text" class="form-control" name="hour" id="time" placeholder="Enter Hour" >
+            </div>
+            <div class="mb-3">
+                <label for="Vnum" class="form-label">Enter Vehicle Number : </label>
+                <input type="text" class="form-control" name="Vnum" id="Vnum" placeholder="Enter Vehicle Number" >
+            </div>
+            <button type="submit" class="btn btn-sm btn-success">Change Availability</button>
+        </form>
+    </div>
+</div>
+
+
+<%- include('./partials/footer') %>

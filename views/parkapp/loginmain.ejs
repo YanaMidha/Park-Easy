@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="loginmain.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5ebe0;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navbar {
+      background-color: black;
+      color: white;
+      width: 100%;
+      padding: 8px 30px; /* Adjust the top and bottom padding */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      margin: 0 8px;
+      font-size: 12px; /* Adjust the font size */
+    }
+
+    .navbar-links {
+      display: flex;
+    }
+
+    .navbar-links button {
+      padding: 6px 10px; /* Adjust button padding */
+      font-size: 12px; /* Adjust button font size */
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin: 0 5px;
+      text-decoration: none;
+      color: white;
+      background-color: #333;
+      transition: background-color 0.3s;
+    }
+
+    .navbar-links button:hover {
+      background-color: #555;
+    }
+
+    .animate-character {
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        -225deg,
+        skyblue 0%,
+        lightcyan 29%,
+        lightgreen 67%,
+        lightyellow 100%
+      );
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 2s linear infinite;
+      display: inline-block;
+      font-size: 20px; /* Adjust the font size */
+    }
+
+    @keyframes textclip {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    /* Adjustments for layout */
+    .container {
+      text-align: center;
+      margin-top: 200px;
+      width: 100%; /* Take full width */
+      max-width: 600px; /* Set a maximum width */
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .login-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin: 0 8px;
+      text-decoration: none;
+      display: block;
+      width: 160px; /* Adjust as needed */
+    }
+
+    .user-login {
+      background-color: #3498db;
+      color: #fff;
+      border: 2px solid #2980b9;
+    }
+
+    .admin-login {
+      background-color: #e74c3c;
+      color: #fff;
+      border: 2px solid #c0392b;
+    }
+
+    .security-login {
+      background-color: #0fa3b1;
+      color: #fff;
+      border: 2px solid #0fa3b1;
+    }
+
+    .waviy {
+      position: relative;
+      -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+      font-size: 60px;
+      margin-bottom: 8%;
+      color: black;
+    }
+
+    .waviy span {
+      font-family: 'Alfa Slab One', cursive;
+      position: relative;
+      display: inline-block;
+      color: black;
+      text-transform: uppercase;
+      animation: waviy 2s infinite;
+      animation-delay: calc(.2s * var(--i));
+    }
+
+    @keyframes waviy {
+      0%,40%,100% {
+        transform: translateY(0)
+      }
+      20% {
+        transform: translateY(-20px)
+      }
+    }
+    .navbar p{
+      margin-left: 600px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <p class="animate-character">Welcome, Please Log In!!</p>
+    <div class="navbar-links">
+      <button onclick="home()">Home</button>
+      <button>FAQ</button>
+      <button>Contact Us</button>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="waviy">
+    <span style="--i:1">W</span>
+    <span style="--i:2">E</span>
+    <span style="--i:3">L</span>
+    <span style="--i:4">C</span>
+    <span style="--i:5">O</span>
+    <span style="--i:6">M</span>
+    <span style="--i:7">E</span>
+  </div>
+  <div class="buttons">
+    <div class="user-container">
+      <a class="user-login login-button" href="/login">Login as User</a>
+    </div>
+    <div class="admin-container">
+      <a class="admin-login login-button" href="/loginadmin">Login as Admin</a>
+    </div>
+    <div class="security-container">
+      <a class="security-login login-button" href="/security/login">Login as Security</a>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="script.js"></script>
+<script>
+  function home(){
+    window.location.href = '/homepage'; //
+  }
+</script>
+</body>
+</html>

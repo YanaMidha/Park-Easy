@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navbar Example</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      height: 60px;
+    }
+    
+    .nav-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%; 
+    }
+    
+    .nav-list h3 {
+      margin: 0; 
+      text-align: center; 
+    }
+    
+    .nav-list li {
+      margin-right: 15px;
+    }
+    
+    .nav-list li:last-child {
+      margin-right:25px; /* Shifts the buttons to the left */
+    }
+    
+    .nav-list li:first-child {
+      margin-right: auto; /* Centers the "CITIES" text */
+    }
+    
+    .nav-list li a {
+      text-decoration: none;
+      color: white;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+    }
+    
+    .btn-faq,
+    .btn-back {
+      padding: 8px 15px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .btn-faq {
+      background-color: #4285f4;
+      color: white;
+      height: 35px;
+      width: 80px;
+    }
+    
+    .btn-back {
+      background-color: #ea4335;
+      color: white;
+      height: 35px;
+      width: 80px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><h3>CITIES</h3></li>
+      <li class="nav-buttons">
+        <button class="btn-faq">FAQ</button>
+        <button class="btn-back">Back</button>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>

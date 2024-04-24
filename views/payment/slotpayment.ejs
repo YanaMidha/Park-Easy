@@ -1,0 +1,136 @@
+<!-- start-payment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your existing meta tags and styles -->
+<style media="screen">
+  body{
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("https://www.cisit.in/images/2021/04/06/pgi01.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  h1{
+    position: absolute;
+    left:50%;
+    top:30%;
+    transform: translate(-50%,-50%);
+    font-size: 80px;
+    -webkit-text-stroke:1px #fff;
+    color:transparent;
+    background-image: linear-gradient(#fff,#fff);
+    background-repeat: no-repeat;
+    background-clip:text;
+    -webkit-background-clip:text;
+    background-position: -750px 0;
+    animation: backcolor 5s linear infinite alternate;
+  }
+
+  @keyframes backcolor{
+    100%{
+      background-position: 0 0;
+    }
+  }
+  a{
+    text-decoration: none;
+    color:#fff;
+    font-size: 2em;
+    font-weight: 500;
+    margin-left: 55px;
+    margin-top: 50px;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+  a:active{
+    color:purple;
+  }
+  #availabilityText{
+    font-size: 2em;
+    color:white;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Start Payment</h1>
+
+        <!-- Add a div to display the availability information -->
+        <div id="availabilityText"></div>
+        <label for="Vnum" style="color: #fff; font-size: large;">Enter Your Vehicle Number:</label>
+        <!-- Add a button to proceed to the Stripe server -->
+        <input type="text" id="Vnum" name="Vnum" autocapitalize="on" >
+        <br><br><br>
+
+        <!-- Use a regular button to trigger the slot availability check -->
+        <button type="button" id="bookButton" style="margin-left: 125px;">Proceed to Payment</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            try {
+                // Use fetch to get the count of available slots directly
+                const response = await fetch('/getAvailableSlotCount', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({}),
+                });
+
+                if (!response.ok) {
+                    console.error('Error getting available slot count. Status:', response.status);
+                    return;
+                }
+
+                const data = await response.json();
+
+                if (data && data.slotCount !== undefined) {
+                    const count = data.slotCount;
+
+                    const availabilityText = document.getElementById('availabilityText');
+                    availabilityText.textContent = `Number of available slots: ${count}`;
+                } else {
+                    console.error('Invalid response from server:', data);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+        document.getElementById('bookButton').addEventListener('click', redirectToVnumber);
+        console.log('Event listener bound to bookButton');
+        function redirectToVnumber() {
+            console.log('redirecting to Vnumber');
+            // Use fetch to send user input to /storeStartTime
+            const Vnum=document.getElementById('Vnum').value
+            console.log(Vnum);
+            fetch('/storeVnum', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ Vnum: Vnum }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('vehicle number stored on the server:', data.Vnum);
+
+                // Redirect to the correct route: /start-payment using window.location.pathname
+                window.location.href='http://localhost:3000/loginuser';
+            })
+            .catch(error => {
+                console.error('Error storing vehicle number on the server:', error);
+                alert('Error storing vehicle number. Please try again.');
+            });
+            ///path/to/page.html
+        }
+    </script>
+</body>
+</html>
