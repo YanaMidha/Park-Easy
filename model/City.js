@@ -22,4 +22,4 @@ let CitySchema = new mongoose.Schema({
 //creating model
 let City = mongoose.model('City', CitySchema)
 
-module.exports = City; //sending the model to be used anywhere when required
+module.exports = City; //sending the model to be used anywhere whenever required
